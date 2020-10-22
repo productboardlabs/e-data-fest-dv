@@ -1,0 +1,27 @@
+CREATE OR REPLACE FUNCTION DV_HASH(
+    value1 VARCHAR
+    )
+RETURNS VARCHAR
+IMMUTABLE
+AS
+    $$
+       MD5(
+           COALESCE(CAST(value1 as VARCHAR(1000)), '')
+       )
+    $$;
+
+CREATE OR REPLACE FUNCTION DV_HASH(
+    value1 VARCHAR,
+    value2 VARCHAR
+    )
+RETURNS VARCHAR
+IMMUTABLE
+AS
+    $$
+       MD5(
+           COALESCE(CAST(value1 as VARCHAR(1000)), '') || ';' ||
+           COALESCE(CAST(value2 as VARCHAR(1000)),'')
+       )
+    $$;
+
+SET LOAD_DATE = TO_CHAR(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()), 'YYYY-MM-DD HH24:MI:SS');
