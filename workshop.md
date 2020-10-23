@@ -33,7 +33,7 @@
 ---
 
 ## DV Model
-* url
+* https://github.com/productboardlabs/e-data-fest-dv/blob/main/model.png
 * 2 entity => 2 huby
     * `hub_beer`
     * `hub_brewery`
