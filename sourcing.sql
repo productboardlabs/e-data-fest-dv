@@ -1,26 +1,27 @@
-CREATE OR REPLACE TABLE BEER_DATABASE AS
-SELECT
-    LOWER("Name") AS name,
-    "id" AS id,
-    "brewery_id" AS brewery_id,
-    "cat_id" AS cat_id,
-    "style_id" AS style_id,
-    TRY_TO_DECIMAL("Alcohol_By_Volume",4,2) AS alcohol_by_volume,
-    TRY_TO_NUMBER("International_Bitterness_Units") AS international_bitterness_units,
-    TRY_TO_NUMBER("Standard_Reference_Method") AS standard_reference_method,
-    LOWER("Description") AS description,
-    LOWER("Style") AS style,
-    LOWER("Category") AS category,
-    LOWER("Brewer") AS brewer,
-    LOWER("Address") AS address,
-    LOWER("City") AS city,
-    LOWER("State") AS state,
-    LOWER("Country") AS country,
-    "Coordinates" AS coordinates,
-    "Website" AS website
-FROM "in.beer_database"
-WHERE TRY_TO_NUMBER("id") IS NOT NULL
-AND TRY_TO_NUMBER("brewery_id") IS NOT NULL
+CREATE OR REPLACE TABLE "in.beer_database_source" AS 
+SELECT 
+    LOWER("Name") AS "NAME",
+    "id" AS "ID",
+    "brewery_id" AS "BREWERY_ID",
+    "cat_id" AS "CAT_ID",
+    "style_id" AS "STYLE_ID",
+    TRY_TO_DECIMAL("Alcohol_By_Volume",4,2) AS "ALCOHOL_BY_VOLUME",
+    TRY_TO_NUMBER("International_Bitterness_Units") AS "INTERNATIONAL_BITTERNESS_UNITS",
+    TRY_TO_NUMBER("Standard_Reference_Method") AS "STANDARD_REFERENCE_METHOD",
+    LOWER("Description") AS "DESCRIPTION",
+    LOWER("Style") AS "STYLE",
+    LOWER("Category") AS "CATEGORY",
+    LOWER("Brewer") AS "BREWER",
+    LOWER("Address") AS "ADDRESS",
+    LOWER("City") AS "CITY",
+    LOWER("State") AS "STATE",
+    LOWER("Country") AS "COUNTRY",
+    MAX("Coordinates") AS "COORDINATES",
+    "Website" AS "WEBSITE"
+FROM "in.beer_database" 
+WHERE TRY_TO_NUMBER("id") IS NOT NULL 
+AND TRY_TO_NUMBER("brewery_id") IS NOT NULL 
+GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,18
 ORDER BY 2
 ;
 
