@@ -9,6 +9,12 @@ https://github.com/productboardlabs/e-data-fest-dv/blob/main/workshop.md
 
 https://docs.google.com/presentation/d/1Dw43w4q6ZOl6fJK1j0UyQBWdTcu09AInQIuEXHC_n3E
 
+## Recommended book
+
+Building a Scalable Data Warehouse with Data Vault 2.0 by Daniel Linstedt, Michael Olschimke
+
+https://learning.oreilly.com/library/view/building-a-scalable/9780128026489/
+
 ## Contributors
 Pavlína Froňková https://www.linkedin.com/in/pavlinafronkova/
 
